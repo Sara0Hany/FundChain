@@ -1,0 +1,627 @@
+
+/* =========================================
+   FUNDCHAIN - MAIN STYLESHEET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --navy: #112039;
+    --navy-light: #243e60;
+    --mint: #55cbb8;
+    --mint-dark: #39b6a2;
+    --background: #f3f6fc;
+    --white: #ffffff;
+    --text: #172d4b;
+    --secondary: #64748b;
+    --border: #e0e8f2;
+    --light: #f5f8fc;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.main-header {
+    background: var(--navy);
+    padding: 20px 5%;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    color: var(--mint);
+    font-size: 34px;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 9px;
+    padding: 14px 24px;
+    transition: 0.25s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.wallet-button,
+.primary-button,
+.contribute-button {
+    background: var(--mint);
+    color: var(--navy);
+}
+
+.wallet-button:hover,
+.primary-button:hover,
+.contribute-button:hover {
+    background: var(--mint-dark);
+}
+
+.details-button {
+    background: var(--navy);
+    color: white;
+    margin-top: 12px;
+}
+
+.details-button:hover {
+    background: var(--navy-light);
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.container {
+    max-width: 1450px;
+    width: 92%;
+    margin: 40px auto;
+}
+
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero {
+    background: linear-gradient(
+        120deg,
+        var(--navy),
+        var(--navy-light)
+    );
+
+    color: white;
+
+    text-align: center;
+
+    padding: 85px 25px;
+
+    border-radius: 22px;
+
+    margin-bottom: 40px;
+}
+
+.hero h2 {
+    font-size: clamp(28px, 4vw, 46px);
+    margin-bottom: 20px;
+}
+
+.hero > p {
+    font-size: 19px;
+    color: #e0e9f5;
+}
+
+.wallet-status {
+    margin-top: 25px;
+    color: var(--mint) !important;
+    font-weight: bold;
+}
+
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard,
+.create-section,
+.campaigns-section {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+
+    margin-bottom: 35px;
+
+    box-shadow: 0 8px 30px rgba(20, 40, 70, 0.05);
+}
+
+.dashboard h2,
+.create-section h2,
+.campaigns-section > h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: var(--navy);
+}
+
+.dashboard p {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--secondary);
+    overflow-wrap: anywhere;
+}
+
+.contract-address span {
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   CREATE CAMPAIGN
+========================================= */
+
+#createCampaignForm {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#createCampaignForm label {
+    font-weight: bold;
+    font-size: 17px;
+    margin-top: 12px;
+}
+
+#createCampaignForm input,
+.campaign-tools input,
+.campaign-tools select,
+.contribution-amount {
+    width: 100%;
+    padding: 17px;
+    border: 1px solid #d8e2ef;
+    border-radius: 9px;
+    font-size: 16px;
+    color: var(--text);
+    background: white;
+    outline: none;
+    transition: 0.2s;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--mint);
+    box-shadow: 0 0 0 3px rgba(85, 203, 184, 0.12);
+}
+
+#createCampaignForm button {
+    align-self: flex-start;
+    margin-top: 15px;
+}
+
+.form-status {
+    color: var(--secondary);
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   STATISTICS
+========================================= */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin: 25px 0 35px;
+}
+
+.stat-card {
+    background: var(--light);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    padding: 24px;
+
+    min-width: 0;
+
+    transition: 0.25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 7px 20px rgba(20, 40, 70, 0.06);
+}
+
+.stat-card h3 {
+    color: var(--secondary);
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.stat-card p {
+    color: var(--navy);
+    font-size: 28px;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   SEARCH AND FILTER
+========================================= */
+
+.campaign-tools {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.campaign-tools input {
+    flex: 1;
+    min-width: 0;
+}
+
+.campaign-tools select {
+    width: 250px;
+    cursor: pointer;
+}
+
+
+/* =========================================
+   CAMPAIGN CARDS
+========================================= */
+
+#campaignsContainer {
+    margin-top: 30px;
+}
+
+.campaign-card {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 30px;
+
+    margin-top: 22px;
+
+    transition: 0.25s ease;
+}
+
+.campaign-card:hover {
+    box-shadow: 0 10px 30px rgba(20, 40, 70, 0.07);
+    transform: translateY(-3px);
+}
+
+.campaign-card h3 {
+    font-size: 25px;
+    color: var(--navy);
+    margin-bottom: 18px;
+}
+
+.campaign-card > p {
+    padding: 9px 0;
+    color: var(--secondary);
+    overflow-wrap: anywhere;
+}
+
+.campaign-card strong {
+    color: var(--navy);
+}
+
+
+/* =========================================
+   PROGRESS BAR
+========================================= */
+
+.progress-bar {
+    width: 100%;
+    height: 14px;
+
+    background: #e8edf4;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    margin: 18px 0 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--mint);
+
+    border-radius: 30px;
+
+    transition: width 0.5s ease;
+}
+
+
+/* =========================================
+   CAMPAIGN ACTIONS
+========================================= */
+
+.campaign-actions {
+    border-top: 1px solid var(--border);
+
+    margin-top: 25px;
+    padding-top: 22px;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+}
+
+.contribute-box {
+    display: flex;
+    flex: 1 1 350px;
+    gap: 12px;
+}
+
+.contribution-amount {
+    flex: 1;
+    min-width: 0;
+}
+
+.campaign-action-status {
+    width: 100%;
+    color: var(--secondary);
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   NO SEARCH RESULTS
+========================================= */
+
+.no-results {
+    padding: 30px;
+    text-align: center;
+    color: var(--secondary);
+    background: var(--light);
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+
+/* =========================================
+   CAMPAIGN DETAILS MODAL
+========================================= */
+
+#campaignDetailsDialog {
+    width: min(650px, 92%);
+
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    margin: auto;
+
+    padding: 35px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    color: var(--text);
+
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.2);
+}
+
+#campaignDetailsDialog::backdrop {
+    background: rgba(10, 22, 42, 0.7);
+    backdrop-filter: blur(3px);
+}
+
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.dialog-header h2 {
+    color: var(--navy);
+    font-size: 24px;
+    overflow-wrap: anywhere;
+}
+
+.close-button {
+    background: #edf1f7;
+    color: var(--navy);
+    padding: 10px 17px;
+}
+
+.close-button:hover {
+    background: #dce5ef;
+}
+
+#campaignDetailsContent p {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    overflow-wrap: anywhere;
+    color: var(--secondary);
+}
+
+#campaignDetailsContent strong {
+    color: var(--navy);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background: var(--navy);
+    color: white;
+    padding: 45px 20px;
+    text-align: center;
+}
+
+.footer-content h2 {
+    color: var(--mint);
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.footer-content p {
+    color: #d0dbea;
+    margin-top: 8px;
+}
+
+.copyright {
+    border-top: 1px solid #35465f;
+    padding-top: 20px;
+    margin-top: 25px !important;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    .dashboard,
+    .create-section,
+    .campaigns-section {
+        padding: 25px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .header-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .header-container button {
+        width: 100%;
+    }
+
+    .logo {
+        font-size: 29px;
+    }
+
+    .container {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    .dashboard,
+    .create-section,
+    .campaigns-section {
+        padding: 20px;
+    }
+
+    .campaign-tools {
+        flex-direction: column;
+    }
+
+    .campaign-tools select {
+        width: 100%;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+    .stat-card h3 {
+        font-size: 13px;
+    }
+
+    .stat-card p {
+        font-size: 21px;
+    }
+
+    .campaign-card {
+        padding: 20px;
+    }
+
+    .contribute-box {
+        flex-direction: column;
+    }
+
+    .contribute-box button {
+        width: 100%;
+    }
+
+    #campaignDetailsDialog {
+        padding: 20px;
+    }
+
+    .dialog-header {
+        align-items: flex-start;
+    }
+
+}

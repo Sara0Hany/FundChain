@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="FundChain - Decentralized Crowdfunding Platform powered by Ethereum Blockchain.">
+
+    <title>FundChain | Decentralized Crowdfunding</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="main-header">
+
+        <div class="header-container">
+
+            <h1 class="logo">FundChain</h1>
+
+            <button id="connectWallet" class="wallet-button">
+                Connect Wallet
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- HERO SECTION -->
+
+        <section class="hero">
+
+            <h2>Fund Ideas. Build the Future.</h2>
+
+            <p>
+                A decentralized crowdfunding platform
+                powered by blockchain.
+            </p>
+
+            <p id="walletStatus" class="wallet-status">
+                Please connect your wallet.
+            </p>
+
+        </section>
+
+
+        <!-- BLOCKCHAIN CONNECTION -->
+
+        <section class="dashboard">
+
+            <h2>Blockchain Connection</h2>
+
+            <p id="networkStatus">
+                Network: Not Connected
+            </p>
+
+            <p id="accountStatus">
+                Account: Not Connected
+            </p>
+
+            <p class="contract-address">
+                Smart Contract:
+                <span>0x49FC9dDF3c394B345A33784edf941e11a813abd1</span>
+            </p>
+
+        </section>
+
+
+        <!-- CREATE CAMPAIGN -->
+
+        <section class="create-section">
+
+            <h2>Create a New Campaign</h2>
+
+            <form id="createCampaignForm">
+
+                <label for="campaignTitle">
+                    Campaign Title
+                </label>
+
+                <input
+                    type="text"
+                    id="campaignTitle"
+                    placeholder="Enter campaign title"
+                    maxlength="100"
+                    required
+                >
+
+
+                <label for="campaignGoal">
+                    Funding Goal (ETH)
+                </label>
+
+                <input
+                    type="number"
+                    id="campaignGoal"
+                    placeholder="Example: 5"
+                    min="0.000000000000000001"
+                    step="any"
+                    required
+                >
+
+
+                <label for="campaignDuration">
+                    Duration (Days)
+                </label>
+
+                <input
+                    type="number"
+                    id="campaignDuration"
+                    placeholder="Example: 7"
+                    min="1"
+                    step="1"
+                    required
+                >
+
+
+                <button type="submit" class="primary-button">
+                    Create Campaign
+                </button>
+
+                <p id="createStatus" class="form-status"></p>
+
+            </form>
+
+        </section>
+
+
+        <!-- EXPLORE CAMPAIGNS -->
+
+        <section class="campaigns-section">
+
+            <h2>Explore Campaigns</h2>
+
+
+            <!-- STATISTICS -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <h3>Total Campaigns</h3>
+
+                    <p id="totalCampaigns">0</p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>Total Raised</h3>
+
+                    <p id="totalRaised">0 ETH</p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>Active Campaigns</h3>
+
+                    <p id="activeCampaigns">0</p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>Successful Campaigns</h3>
+
+                    <p id="successfulCampaigns">0</p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>Failed Campaigns</h3>
+
+                    <p id="failedCampaigns">0</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH AND FILTER -->
+
+            <div class="campaign-tools">
+
+                <input
+                    type="text"
+                    id="campaignSearch"
+                    placeholder="Search campaigns..."
+                >
+
+                <select id="campaignFilter">
+
+                    <option value="all">
+                        All Campaigns
+                    </option>
+
+                    <option value="active">
+                        Active Campaigns
+                    </option>
+
+                    <option value="successful">
+                        Successful Campaigns
+                    </option>
+
+                    <option value="failed">
+                        Failed Campaigns
+                    </option>
+
+                    <option value="mine">
+                        My Campaigns
+                    </option>
+
+                    <option value="contributed">
+                        My Contributions
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- REFRESH BUTTON -->
+
+            <button
+                id="refreshCampaigns"
+                class="primary-button"
+                type="button"
+            >
+                Refresh Campaigns
+            </button>
+
+
+            <!-- CAMPAIGNS LIST -->
+
+            <div id="campaignsContainer">
+
+                <p>
+                    Connect your wallet to view campaigns.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- CAMPAIGN DETAILS MODAL -->
+
+    <dialog id="campaignDetailsDialog">
+
+        <div class="dialog-header">
+
+            <h2 id="detailsTitle">
+                Campaign Details
+            </h2>
+
+            <button
+                type="button"
+                id="closeCampaignDetails"
+                class="close-button"
+            >
+                Close
+            </button>
+
+        </div>
+
+        <div id="campaignDetailsContent"></div>
+
+    </dialog>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h2>FundChain</h2>
+
+            <p>
+                Fund Ideas. Build the Future.
+            </p>
+
+            <p>
+                Decentralized Crowdfunding Platform
+                powered by Ethereum Blockchain.
+            </p>
+
+            <p class="copyright">
+                © 2026 FundChain. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ETHERS.JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.5/dist/ethers.umd.min.js"></script>
+
+    <!-- APPLICATION JAVASCRIPT -->
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
